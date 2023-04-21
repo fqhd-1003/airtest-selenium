@@ -35,10 +35,11 @@ def new_trans_screen(self, step, code):
 
         for item in step["__children__"]:
             if item["data"]["name"] == "_gen_screen_log":
-                res = item["data"]['ret']
-                src = res["screen"]
-                if "pos" in res:
-                    screen["pos"] = res["pos"]
+                if 'ret' in item["data"]:
+                    res = item["data"]['ret']
+                    src = res["screen"]
+                    if "pos" in res:
+                        screen["pos"] = res["pos"]
                 break
 
         if self.export_dir and src:
